@@ -28,9 +28,9 @@ Para a implementação do projeto lógico foi proposto a criação do projeto ap
 
 Para a criação do projeto lógico denominado `elmasri` nós tivemos que utilizar o _SQL Power Architect_, uma aplicação de modelagem de tabelas que torna mais visível as mudanças que estão sendo feitas.
 
-![projeto-elmasri](elmasri.png)
+![projeto-elmasri](https://raw.githubusercontent.com/caleber9/uvv_bd_1_cc1m/main/PSet1/images/elmasri.png)
 
-Este projeto pode ser visualizado dentro deste repositório, ou clicando [aqui]().
+Este projeto pode ser visualizado dentro deste repositório, ou clicando [aqui](https://github.com/caleber9/uvv_bd_1_cc1m/blob/main/PSet1/elmasri.architect).
 
 Com o projeto lógico pronto no _SQL Power Architect_ utilizamos ele para criar dois _scripts_, um para o **_PostgreSQL_** e outro para o **_MariaDB_**.
 
@@ -38,17 +38,17 @@ Com o projeto lógico pronto no _SQL Power Architect_ utilizamos ele para criar 
 
 O PostgreSQL é um sistema de gerenciamento de banco de dados relacional (SGBD), desenvolvido como projeto de código aberto. Atualmente ele é um dos SGBD mais utilizados e por isso foi escolhido para fazer parte do nosso estudo.
 
-A implementação no PostgreSQL começou com o login pelo terminal utilizando as senhas da máquina virtual fornecida pelo orientador do curso (pode ser encontrada no [site](https://www.computacaoraiz.com.br/) computação raiz), assim que conectado o terminal ao PostgreSQL fazemos a implementação dos [_scripts_]().
+A implementação no PostgreSQL começou com o login pelo terminal utilizando as senhas da máquina virtual fornecida pelo orientador do curso (pode ser encontrada no [site](https://www.computacaoraiz.com.br/) computação raiz), assim que conectado o terminal ao PostgreSQL fazemos a implementação dos [_scripts_](https://github.com/caleber9/uvv_bd_1_cc1m/blob/main/PSet1/scriptpostgresql.txt).
 
-![postgres-login](postgres.png)
+![postgres-login](https://raw.githubusercontent.com/caleber9/uvv_bd_1_cc1m/main/PSet1/images/postgres.png)
 
 ## 5. MariaDB
 
 MariaDB é um sistema de gerenciamento de banco de dados que surgiu como fork do MySQL, criado pelo próprio fundador do projeto após sua aquisição pela Oracle. A intenção principal do projeto é manter uma alta fidelidade com o MySQL.
 
-A implementação no MariaDB começou da mesma maneira que o PostgreSQL, começamos com o login pelo terminal utilizando as senhas da máquina virtual. Após isso conectamos o MariaDB ao terminal, e fazemos a implementação dos [scripts]().
+A implementação no MariaDB começou da mesma maneira que o PostgreSQL, começamos com o login pelo terminal utilizando as senhas da máquina virtual. Após isso conectamos o MariaDB ao terminal, e fazemos a implementação dos [_scripts_](https://github.com/caleber9/uvv_bd_1_cc1m/blob/main/PSet1/scriptmariadb.txt).
 
-![mariadb-login](mariadb.png)
+![mariadb-login](https://raw.githubusercontent.com/caleber9/uvv_bd_1_cc1m/main/PSet1/images/mariadb.png)
 
 ## 6. Conclusão
 
