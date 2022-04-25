@@ -14,8 +14,8 @@ Este PSet teve como foco desafiar os alunos e incentivá-los a aprender novos co
 Os alunos tiveram como objetivos aprender a utilizar o **GIT**, a implementar um **projeto lógico** e a utilizar diferentes **SGBD relacionais** como o **PostgreSQL** e o **MariaDB**.
 
 ## 2. Git e GitHub
-O Git é um **_Sistema de Controle de Versão_**, conhecido também como VCS (em inglês, _Version Control System_). Um VCS é um sistema que registra alterações feitas em um código fonte, com ele podemos saber quem, quando e porquê tal mudança foi feita, mantendo assim um histórico recuperável de todo o código fonte.
-O **GitHub** é uma plataforma de hospedagem de código fonte que utiliza o Git como VCS.
+O Git é um **_Sistema de Controle de Versão_**, conhecido também como _VCS_ (em inglês, _Version Control System_). Um _VCS_ é um sistema que registra alterações feitas em um código fonte, com ele podemos saber quem, quando e porquê tal mudança foi feita, mantendo assim um histórico recuperável de todo o código fonte.
+O **GitHub** é uma plataforma de hospedagem de código fonte que utiliza o Git como _VCS_.
 
 Dentro do GitHub possuímos algumas funções que vale destacar:
 
