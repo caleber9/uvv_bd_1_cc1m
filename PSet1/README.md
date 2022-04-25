@@ -28,7 +28,7 @@ Para a implementação do projeto lógico foi proposto a criação do projeto ap
 
 Para a criação do projeto lógico denominado `elmasri` nós tivemos que utilizar o _SQL Power Architect_, uma aplicação de modelagem de tabelas que torna mais visível as mudanças que estão sendo feitas.
 
-![projeto-elmasri](https://raw.githubusercontent.com/caleber9/uvv_bd_1_cc1m/main/PSet1/images/elmasri.png)
+![projeto-elmasri](https://raw.githubusercontent.com/caleber9/uvv_bd_1_cc1m/main/PSet1/images/elmasriproject.png)
 
 Este projeto pode ser visualizado dentro deste repositório, ou clicando [aqui](https://github.com/caleber9/uvv_bd_1_cc1m/blob/main/PSet1/elmasri.architect).
 
