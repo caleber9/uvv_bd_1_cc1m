@@ -1,7 +1,7 @@
 /* Login do usuário root */
 
 mysql -u root -p
-123456
+computacao@raiz
 
 /* Criando o usuário "caleberodor" */
 
