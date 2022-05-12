@@ -115,13 +115,13 @@ CREATE UNIQUE INDEX projeto_idx
 
 CREATE TABLE elmasri.trabalha_em (
                 cpf_funcionario CHAR(11) NOT NULL,
-                numero_projeto_trabalha_em INTEGER NOT NULL,
+                numero_projeto INTEGER NOT NULL,
                 horas NUMERIC(3,1) NOT NULL,
-                CONSTRAINT pk_trabalha_em PRIMARY KEY (cpf_funcionario, numero_projeto_trabalha_em)
+                CONSTRAINT pk_trabalha_em PRIMARY KEY (cpf_funcionario, numero_projeto)
 );
 COMMENT ON TABLE elmasri.trabalha_em IS 'Tabela para armazenar quais funcionários trabalham em quais projetos.';
 COMMENT ON COLUMN elmasri.trabalha_em.cpf_funcionario IS 'CPF do funcionário. Faz parte da PK desta tabela e é uma FK para a tabela funcionário.';
-COMMENT ON COLUMN elmasri.trabalha_em.numero_projeto_trabalha_em IS 'Número do projeto. Faz parte da PK desta tabela e é uma FK para a tabela projeto.';
+COMMENT ON COLUMN elmasri.trabalha_em.numero_projeto IS 'Número do projeto. Faz parte da PK desta tabela e é uma FK para a tabela projeto.';
 COMMENT ON COLUMN elmasri.trabalha_em.horas IS 'Horas trabalhadas pelo funcionário neste projeto.';
 
 
@@ -184,7 +184,7 @@ ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 ALTER TABLE elmasri.trabalha_em ADD CONSTRAINT projeto_trabalha_em_fk
-FOREIGN KEY (numero_projeto_trabalha_em)
+FOREIGN KEY (numero_projeto)
 REFERENCES elmasri.projeto (numero_projeto)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
