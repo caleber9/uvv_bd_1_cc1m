@@ -11,21 +11,10 @@
 ## 1. Introdução
 Este PSet teve como foco desafiar os alunos e incentivá-los a aprender novos conteúdos importantes para a matéria de _Design e Desenvolvimento de Banco de Dados_.
 
-Dentro desse PSet os alunos tiveram o objetivo de gerar **relatórios SQL** com base na tabela do **PSet 1** (disponível para consulta [aqui]()).
+Dentro desse PSet os alunos tiveram o objetivo de gerar **relatórios SQL** com base na tabela do **PSet 1** (disponível para consulta [aqui](https://github.com/caleber9/uvv_bd_1_cc1m/tree/main/PSet1)).
 
 ## 2. Questões para os relatórios
-Aqui apresento as questões e seus respectivos relatórios formados pelos [scripts]() SQL. 
-
-
-
-
-
-
-
-
-
-
-
+Aqui apresento as questões e seus respectivos relatórios formados pelos [scripts](https://github.com/caleber9/uvv_bd_1_cc1m/blob/main/PSet2/relatoriosql.txt) SQL. 
 
 ### **Questão 1:**
 Prepare um relatório que mostre a média salarial dos funcionários
