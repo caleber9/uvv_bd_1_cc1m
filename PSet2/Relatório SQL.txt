@@ -1,0 +1,135 @@
+--Questão 01
+SELECT dpt.nome_departamento, CONCAT("R$", " ", ROUND(AVG(f.salario), 2)) AS media_salario
+FROM funcionario f
+INNER JOIN departamento dpt
+ON dpt.numero_departamento = f.numero_departamento
+GROUP BY dpt.nome_departamento;
+
+--Questão 02
+SELECT CONCAT("R$", " ", ROUND(AVG(f.salario), 2)) AS media_salario, f.sexo
+FROM funcionario f
+GROUP BY f.sexo;
+
+--Questão 03
+SELECT nome_departamento, CONCAT(f.primeiro_nome, " ", f.nome_meio, " ", f.ultimo_nome) AS nome, data_nascimento,
+TIMESTAMPDIFF(YEAR, f.data_nascimento, CURDATE()) idade, CONCAT("R$", " ", f.salario) salario
+FROM funcionario f INNER JOIN departamento dpt
+WHERE f.numero_departamento = dpt.numero_departamento ORDER BY nome_departamento;
+
+--Questão 04
+SELECT CONCAT(f.primeiro_nome, " ", f.nome_meio, " ", f.ultimo_nome) AS nome, TIMESTAMPDIFF(YEAR, f.data_nascimento, CURDATE()) idade, CONCAT("R$", " ", f.salario) salario, ROUND(CASE
+WHEN f.salario < 35000 THEN f.salario * 1.2
+ELSE f.salario * 1.15 END, 2) reajuste
+FROM funcionario f
+ORDER BY idade DESC;
+
+--Questão 05
+SELECT nome_departamento, g.primeiro_nome AS gerente, f.primeiro_nome AS funcionario, CONCAT("R$", " ", f.salario) salario
+FROM departamento d INNER JOIN funcionario f, 
+(SELECT primeiro_nome, cpf FROM funcionario f INNER JOIN departamento d WHERE f.cpf = d.cpf_gerente) AS g
+WHERE d.numero_departamento = f.numero_departamento AND g.cpf = d.cpf_gerente ORDER BY d.nome_departamento ASC, f.salario DESC;
+
+--Questão 06
+SELECT CONCAT(f.primeiro_nome, " ", f.nome_meio, " ", f.ultimo_nome) funcionario, dpt.nome_departamento, 
+CONCAT(dep.nome_dependente, " ", f.nome_meio, " ", f.ultimo_nome) dependente, TIMESTAMPDIFF(YEAR, dep.data_nascimento, CURDATE()) idade_dependente,
+CASE
+WHEN dep.sexo = 'M' THEN "Masculino"
+WHEN dep.sexo = 'F' THEN "Feminino"
+END sexo_dependente
+FROM funcionario f
+INNER JOIN departamento dpt
+ON f.numero_departamento = dpt.numero_departamento
+INNER JOIN dependente dep
+ON f.cpf = dep.cpf_funcionario;
+
+--Questão 07
+SELECT CONCAT(f.primeiro_nome, " ", f.nome_meio, " ", f.ultimo_nome) nome_funcionario, dpt.nome_departamento,
+CONCAT("R$", " ", f.salario) salario
+FROM funcionario f
+LEFT OUTER JOIN dependente dep ON f.cpf = dep.cpf_funcionario
+INNER JOIN departamento dpt ON f.numero_departamento = dpt.numero_departamento
+WHERE dep.cpf_funcionario IS NULL;
+
+--Questão 08
+SELECT dpt.nome_departamento, p.nome_projeto,
+CONCAT(f.primeiro_nome, " ", f.nome_meio, " ", f.ultimo_nome) nome, CONCAT(t.horas, "h") horas FROM funcionario f 
+INNER JOIN departamento dpt 
+INNER JOIN projeto p 
+INNER JOIN trabalha_em t
+WHERE f.numero_departamento = dpt.numero_departamento 
+AND p.numero_projeto = t.numero_projeto 
+AND f.cpf = t.cpf_funcionario 
+ORDER BY p.numero_projeto;
+
+--Questão 09
+SELECT dpt.nome_departamento, p.nome_projeto, SUM(t.horas) as total_horas
+FROM departamento dpt 
+INNER JOIN projeto p 
+INNER JOIN trabalha_em t
+WHERE dpt.numero_departamento = p.numero_departamento 
+AND p.numero_projeto = t.numero_projeto 
+GROUP BY p.nome_projeto;
+
+--Questão 10
+SELECT dpt.nome_departamento, 
+CONCAT("R$", " ", ROUND(AVG(f.salario), 2)) media_salario
+FROM funcionario f
+INNER JOIN departamento dpt
+ON dpt.numero_departamento = f.numero_departamento
+GROUP BY dpt.nome_departamento;
+
+--Questão 11
+SELECT CONCAT(f.primeiro_nome, " ", f.nome_meio, " ", f.ultimo_nome) funcionario, p.nome_projeto, CONCAT("R$", " ", t.horas * 50) total_recebido
+FROM funcionario f
+INNER JOIN trabalha_em t
+ON f.cpf = t.cpf_funcionario
+INNER JOIN projeto p
+ON t.numero_projeto = p.numero_projeto
+ORDER BY t.horas DESC;
+
+--Questão 12
+SELECT dpt.nome_departamento, p.nome_projeto,
+f.primeiro_nome funcionario, CONCAT(t.horas, "h") horas
+FROM funcionario f 
+INNER JOIN departamento dpt
+ON f.numero_departamento = dpt.numero_departamento
+INNER JOIN projeto p
+ON dpt.numero_departamento = p.numero_departamento
+INNER JOIN trabalha_em t
+ON p.numero_projeto = t.numero_projeto
+WHERE t.horas = 0;
+
+--Questão 13
+SELECT CONCAT(f.primeiro_nome, " ", f.nome_meio, " ", f.ultimo_nome) nome,
+CASE WHEN f.sexo = "M" THEN "Masculino" 
+WHEN f.sexo = "F" THEN "Feminino"
+END sexo,
+TIMESTAMPDIFF(YEAR, f.data_nascimento, CURDATE()) idade
+FROM funcionario f
+UNION
+SELECT CONCAT(dep.nome_dependente, " ", f.nome_meio, " ", f.ultimo_nome) nome,
+CASE WHEN dep.sexo = "M" THEN "Masculino"
+WHEN dep.sexo = "F" THEN "Feminino"
+END sexo,
+TIMESTAMPDIFF(year, dep.data_nascimento, curdate()) idade
+FROM dependente dep 
+INNER JOIN funcionario f
+ON dep.cpf_funcionario = f.cpf
+ORDER BY idade DESC;
+
+--Questão 14
+SELECT dpt.nome_departamento, COUNT(f.numero_departamento) numero_de_funcionarios
+FROM funcionario f
+INNER JOIN departamento dpt
+ON f.numero_departamento = dpt.numero_departamento
+GROUP BY dpt.nome_departamento;
+
+--Questão 15
+SELECT DISTINCT CONCAT(f.primeiro_nome, " ", f.nome_meio, " ", f.ultimo_nome) nome, dpt.nome_departamento, p.nome_projeto FROM departamento dpt 
+INNER JOIN projeto p 
+INNER JOIN trabalha_em t 
+INNER JOIN funcionario f 
+ON dpt.numero_departamento = f.numero_departamento 
+AND p.numero_projeto = t.numero_projeto 
+AND t.cpf_funcionario = f.cpf
+ORDER BY f.primeiro_nome ASC;
